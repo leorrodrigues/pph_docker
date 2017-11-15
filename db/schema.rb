@@ -23,6 +23,8 @@ ActiveRecord::Schema.define(version: 20171114160546) do
   end
 
   create_table "users", force: :cascade do |t|
+    t.string "provider"
+    t.string "uid"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "name"
