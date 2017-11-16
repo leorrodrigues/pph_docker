@@ -278,5 +278,4 @@ Devise.setup do |config|
   #      provider :twitter,'ZvJtGQo6luj6xRcyZHJPGBfWI','wqutE1Ble5FSjOKnmOScC8RAcud73clo902y0VaTnSRS5Z6stz'
   #end
   config.omniauth :facebook, '228465747689914', 'c47a38c5189138b4d8f25756c9bd6de9'
-  config.omniauth :github, '18f454d1996c90de17c2', 'c3e4e2f96025e9fa31990796a8dba8ead72e041f'
 end

@@ -5,12 +5,13 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+#Admin Panel
+gem 'activeadmin','~>1.0.0.pre4'
+gem 'inherited_resources',github: 'activeadmin/inherited_resources'
+
 #OmniAuth
 gem 'omniauth'
 gem 'omniauth-facebook'
-gem 'omniauth-github'
-gem 'omniauth-twitter'
-gem 'omniauth-google'
 #Devise Gem
 gem 'devise'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
