@@ -3,8 +3,8 @@ Rails.application.routes.draw do
 
     devise_for :users, controllers: { registrations: "registrations"}
 
-    get 'auth/facebook/callback', to: 'callbacks#create'
-    get 'auth/failure', to: redirect('/')
+    get '/auth/facebook/callback', to: 'callbacks#create'
+    get '/auth/failure', to: redirect('/')
 
     match '/users/:id/finish_signup' => 'users#finish_signup', via: [:get, :patch], :as => :finish_signup
 
