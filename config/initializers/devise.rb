@@ -276,8 +276,7 @@ Devise.setup do |config|
   # config.omniauth_path_prefix = '/my_engine/users/auth'
   #Rails.application.config.middleware.use OmniAuth::Builder do
   #      provider :twitter,'ZvJtGQo6luj6xRcyZHJPGBfWI','wqutE1Ble5FSjOKnmOScC8RAcud73clo902y0VaTnSRS5Z6stz'
-  #      provider :facebook,'228465747689914','c47a38c5189138b4d8f25756c9bd6de9'
-  #      provider :github,'4da536d0f4f6429a0fe2','537ab6462ff4a370a8b1d4727b9f3deb47e1309f'
   #end
   config.omniauth :facebook, '228465747689914', 'c47a38c5189138b4d8f25756c9bd6de9'
+  config.omniauth :github, '18f454d1996c90de17c2', 'c3e4e2f96025e9fa31990796a8dba8ead72e041f'
 end

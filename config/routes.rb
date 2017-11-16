@@ -1,10 +1,7 @@
 Rails.application.routes.draw do
     resources :algorithms
 
-    devise_for :users, controllers: { registrations: "registrations"}
-
-    get '/auth/facebook/callback', to: 'callbacks#create'
-    get '/auth/failure', to: redirect('/')
+    devise_for :users, controllers: { registrations: "registrations",:omniauth_callbacks => "callbacks"}
 
     match '/users/:id/finish_signup' => 'users#finish_signup', via: [:get, :patch], :as => :finish_signup
 

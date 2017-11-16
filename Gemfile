@@ -8,6 +8,9 @@ end
 #OmniAuth
 gem 'omniauth'
 gem 'omniauth-facebook'
+gem 'omniauth-github'
+gem 'omniauth-twitter'
+gem 'omniauth-google'
 #Devise Gem
 gem 'devise'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

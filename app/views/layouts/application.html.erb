@@ -1,20 +1,51 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>PPH</title>
-        <%= csrf_meta_tags %>
+  <head>
+    <title>PPH</title>
+    <%= csrf_meta_tags %>
 
-        <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-        <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    </head>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 
-    <body>
-        <%if user_signed_in?%>
-            <p>Olá,
-                <%= current_user.name %> - <%=link_to "Sair",destroy_user_session_path, :method=> 'delete'%>
-            </p>
-            <br/>
-        <%end%>
-        <%= yield %>
-    </body>
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+  </head>
+
+  <body>
+  	<nav class="navbar navbar-default">
+  		<div class="container-fluid">
+  			<div class="navbar-header">
+  				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+  				<span class="sr_only">Toggle Navigation</span>
+  				<span class="icon_bar"></span>
+  				<span class="icon_bar"></span>
+  				<span class="icon_bar"></span>
+  				</button>
+  				<h1><%= link_to root_path do %> PPH <% end %></h1>
+  			</div>
+
+  			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+  				<ul class="nav navbar navbar-right">
+  					<% if current_user%>
+  					<li>Bem Vindo!</li>
+  					<li><%=link_to "Sair",destroy_user_session_path, :method=> 'delete'%></li>
+
+  					<% else %>
+  					<li><%= link_to "auth/facebook" do %> <%= image_tag('facebook.png', width: '60', height: '60', class: 'image-circle')%><%end%></li>
+                    <li><%= link_to "auth/github" do %> <%= image_tag('github.jpe', width: '60', height: '60', class: 'image-circle')%><%end%></li>
+  					<%end%>
+  				</ul>
+  			</div>
+  		</div>
+  	</nav>
+
+  	<% flash.each do |key, value|%>
+  		<div class="alert alert-info"><%= value %></div>
+  	<% end %>
+
+    <%= yield %>
+  </body>
+
 </html>
