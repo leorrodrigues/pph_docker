@@ -13,14 +13,21 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar navbar-right">
                 <% if current_user%>
-                <li>
-                    Bem Vindo!
-                    <%=current_user.name%>
-                    <%=link_to "Sair",destroy_user_session_path, :method=> 'delete'%>
-                </li>
+                    <li>
+                        Bem Vindo!
+                        <%=current_user.name%>
+                        <%=link_to "Sair",destroy_user_session_path, :method=> 'delete'%>
+                    </li>
 
                 <% else %>
-                <li><%= link_to "auth/facebook" do %> <%= image_tag('facebook.png', width: '60', height: '60', class: 'image-circle')%><%end%></li>
+                    <li>
+                        Você não está logado. <%=link_to "Fazer Login", new_user_session_path%>
+                    </li>
+                    <li>
+                        <%= link_to user_facebook_omniauth_authorize_path do %>
+                            <%= image_tag('facebook.png', width: '60', height: '60', class: 'image-circle')%>
+                        <%end%>
+                    </li>
                 <%end%>
             </ul>
         </div>

@@ -13,3 +13,41 @@
  *= require_tree .
  *= require_self
  */
+
+
+ a.home_links, a.home_links:hover, a.home_links:focus, a.home_links:visited, a.home_links:active {
+    text-decoration: none;
+    color: #858C92 !important;
+    text-align: center;
+    display: inline-block;
+    background-color: #54595D !important;
+    font-family: serif;
+}
+
+img.image-circle:hover{
+    color: #7B8389 !important;
+    background-color: #7B8389 !important;
+}
+
+a.home_links:hover{
+    text-decoration: none;
+    color: #CCCFD1 !important;
+    text-align: center;
+    display: inline-block;
+    background-color: #7B8389 !important;
+    font-family: serif;
+}
+
+.navbar{
+    background-color: #54595D;
+}
+
+label.white{
+    color: #CCCFD1;
+    font-family: serif;
+}
+
+ul.white{
+    color: white;
+    text-decoration: none;
+}
