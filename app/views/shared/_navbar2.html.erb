@@ -14,11 +14,15 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-6">
         <ul class="nav navbar-nav">
             <li class="active"><%= link_to 'Página inicial', root_path, :class => 'home_links'%></li>
+            <% if user_signed_in? %>
+                <li> <%= link_to "Algoritmos", algorithms_index_path, :method => :get, :class => 'home_links'%></li>
+            <% end %>
         </ul>
         <ul class="nav navbar-nav navbar-right white">
             <% if user_signed_in? %>
                 <ul>
                     <li> <%=label_tag "Bem vindo! "+current_user.name%></li>
+                    <li> <%= link_to 'Histórico', historico_index_path, :class=>'home_links'%></li>
                     <li><%= link_to 'Alterar minha conta', edit_user_registration_path, :class => 'home_links' %></li>
                     <li><%= link_to "Sair", destroy_user_session_path, :method => :delete, :class => 'home_links' %></li>
                 </ul>

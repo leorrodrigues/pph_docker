@@ -1,0 +1,17 @@
+<%= form_for :algorithm, remote: true do |f|%>
+    <%= f.label "Digite a o tamanho do mapa:"%>
+    <div class="numberfield">
+        <%= f.label "Linhas:"%>
+        <%= f.number_field :map_line, id: :map_line, step: :any, min: 0, max:100%>
+    <div class="numberfield">
+        <%= f.label "Colunas:"%>
+        <%= f.number_field :map_row, id: :map_row, step: :any, min: 0, max:100%>
+    </div>
+    <div class="filefield">
+        <%= f.label "Faça o upload do mapa:"%>
+        <%= f.file_field :map_file, id: :map_line, multiple: false%>
+    </div>
+    <div class="actions">
+        <%= f.submit "Alterar o mapa", :method => change_map()%>
+    </div>
+<%end%>

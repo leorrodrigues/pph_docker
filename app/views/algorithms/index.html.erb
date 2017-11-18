@@ -1,25 +1,13 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Algorithms</h1>
+<h1>Algoritimos</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<%=render partial: 'form_map', map: @algorithm%>
 
-  <tbody>
-    <% @algorithms.each do |algorithm| %>
-      <tr>
-        <td><%= link_to 'Show', algorithm %></td>
-        <td><%= link_to 'Edit', edit_algorithm_path(algorithm) %></td>
-        <td><%= link_to 'Destroy', algorithm, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<%terrain=get_terrain("map/terrain_example.txt")%>
 
-<br>
+<%init=[1,1]%>
+<%final=[42,42]%>
+<%map=prepare_map(42,42,terrain,init,final)%>
 
-<%= link_to 'New Algorithm', new_algorithm_path %>
+<%=map.html_safe%>
