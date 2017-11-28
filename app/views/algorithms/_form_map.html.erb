@@ -7,11 +7,29 @@
         <%= f.label "Colunas:"%>
         <%= f.number_field :map_row, id: :map_row, step: :any, min: 0, max:100%>
     </div>
+    <%= f.label "Entre com a posição inicial da busca:"%>
+    <div class="numberfield">
+        <%= f.label "Linha:"%>
+        <%= f.number_field :init_line, id: :init_line, step: :any, min: 0, max:100%>
+    </div>
+    <div class="numberfield">
+    <%= f.label "Coluna:"%>
+    <%= f.number_field :init_row, id: :init_row, step: :any, min: 0, max:100%>
+    </div>
+    <%= f.label "Entre com a posição final da busca:"%>
+    <div class="numberfield">
+        <%= f.label "Linha:"%>
+        <%= f.number_field :final_line, id: :final_line, step: :any, min: 0, max:100%>
+    </div>
+    <div class="numberfield">
+    <%= f.label "Coluna:"%>
+    <%= f.number_field :final_row, id: :final_row, step: :any, min: 0, max:100%>
+    </div>
     <div class="filefield">
         <%= f.label "Faça o upload do mapa:"%>
-        <%= f.file_field :map_file, id: :map_line, multiple: false%>
+        <%= f.file_field :map_file, id: :map_file, multiple: false%>
     </div>
     <div class="actions">
-        <%= f.submit "Alterar o mapa", :method => change_map()%>
+        <%= f.submit "Alterar o mapa", :onclick => "GeraMapa();"%>
     </div>
 <%end%>

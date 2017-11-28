@@ -6,31 +6,26 @@ class AlgorithmsController < ApplicationController
     # GET /algorithms
     # GET /algorithms.json
     def index
-        puts "OI"
         @algorithms = Algorithm.all
     end
 
     # GET /algorithms/1
     # GET /algorithms/1.json
     def show
-        puts "OI"
     end
 
     # GET /algorithms/new
     def new
-        puts "OI"
         @algorithm = Algorithm.new
     end
 
     # GET /algorithms/1/edit
     def edit
-        puts "OI"
     end
 
     # POST /algorithms
     # POST /algorithms.json
     def create
-        puts "OI"
         @algorithm = Algorithm.new(algorithm_params)
 
         respond_to do |format|
@@ -47,8 +42,6 @@ class AlgorithmsController < ApplicationController
     # PATCH/PUT /algorithms/1
     # PATCH/PUT /algorithms/1.json
     def update
-
-            puts "OI"
         respond_to do |format|
             if @algorithm.update(algorithm_params)
                 format.html { redirect_to @algorithm, notice: 'Algorithm was successfully updated.' }

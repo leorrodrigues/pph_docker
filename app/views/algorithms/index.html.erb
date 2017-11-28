@@ -9,5 +9,19 @@
 <%init=[1,1]%>
 <%final=[42,42]%>
 <%map=prepare_map(42,42,terrain,init,final)%>
+<div id="fileDisplayArea"></div>
 
-<%=map.html_safe%>
+<div id="Mapa">
+    <%=map.html_safe%>
+</div>
+
+<div id=algoritimos>
+    <table>
+        <tr>
+            <td><%=button_to "Busca em Largura"%></td>
+            <td><%=button_to "Busca em Profundidade"%></td>
+            <td><%=button_to "Busca de Custo Uniforme"%></td>
+            <td><%=button_to "Busca A*"%></td>
+        </tr>
+    </table>
+</div>
