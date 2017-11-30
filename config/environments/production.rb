@@ -64,11 +64,11 @@ Rails.application.configure do
     config.action_mailer.delivery_method = :smtp
     config.action_mailer.smtp_settings = {
         address: 'smtp.sendgrid.net',
-        port: 465,
+        port: 587,
         domain: 'pphalgoritms.herokuapp.com',
         user_name: "pphweb",
-        password: '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',
-        authentication: 'plain',
+        password: '6ew6GMiBRrCRWnhsaUERww',
+        authentication: 'login',
         enable_starttls_auto: true }
         config.action_mailer.default_url_options = { :host => 'pphalgoritms.herokuapp.com' }
   # Ignore bad email addresses and do not raise email delivery errors.
