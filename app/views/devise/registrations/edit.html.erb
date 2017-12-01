@@ -13,7 +13,7 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :password %> <i>(Caso não deseje alterar a senha, deixe o campo em branco)</i><br />
+    <%= f.label "Senha" %> <i>(Caso não deseje alterar a senha, deixe o campo em branco)</i><br />
     <%= f.password_field :password, autocomplete: "off" %>
     <% if @minimum_password_length %>
       <br />
@@ -22,12 +22,12 @@
   </div>
 
   <div class="field">
-    <%= f.label :password_confirmation %><br />
+    <%= f.label "Confirmação de senha" %><br />
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
 
   <div class="field">
-    <%= f.label :current_password %> <i>(Sua senha atual é necessária para efetuar as alterações)</i><br />
+    <%= f.label "Senha atual" %> <i>(Sua senha atual é necessária para efetuar as alterações)</i><br />
     <%= f.password_field :current_password, autocomplete: "off" %>
   </div>
 

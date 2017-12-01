@@ -66,6 +66,22 @@ class AlgorithmsController < ApplicationController
     def change_map
     end
 
+    def saveToDB
+        oInicio=params["Inicio"]
+        oInicio="("+String(oInicio[0].to_i+1)+","+String(oInicio[1].to_i+1)+")"
+        oDestino=params["Destino"]
+        oDestino="("+String(oDestino[0].to_i+1)+","+String(oDestino[1].to_i+1)+")"
+        oTamanho=params["Tamanho"]
+        oPesos=params["Pesos"]
+        oMetodo=params["Metodo"]
+        m=Map.new(largura:oTamanho[0],altura:oTamanho[1],pesos:oPesos,inicial:oInicio,final:oDestino)
+        h=Historic.new(metodo:oMetodo)
+        h.user_id=current_user.id
+        h.save!
+        m.historic_id=h.id
+        m.save!
+    end
+
     private
         # Use callbacks to share common setup or constraints between actions.
         def set_algorithm

@@ -21,6 +21,8 @@ function MapaCompleto(){
 
     this.tamanho_x=-1;
     this.tamanho_y=-1;
+
+    this.metodo="";
 }
 
 //************************FUNCOES EXTERNAS**********************************
@@ -207,8 +209,23 @@ function verificaContido(vetor,match){
     return false;
 }
 
+function salvaDB(mapa){
+    var pesos="";
+    for(var i=0;i<mapa.terreno.length;i++){
+        pesos+=mapa.terreno[i].peso+" ";
+    }
+    var dados={"Metodo":mapa.metodo, "Inicio":[mapa.inicio_x,mapa.inicio_y], "Destino":[mapa.destino_x,mapa.destino_y],"Tamanho":[mapa.tamanho_x,mapa.tamanho_y],"Pesos":pesos};
+    $.ajax({
+        url: "/algorithms/saveToDB",
+        type: "GET",
+        data: dados
+    })
+
+}
+
 function ExecutaBFS(){
     var mapa=CriaMapa();
+    mapa.metodo="bfs";
     var fronteira=[];
     var visitados=[];
     var verificando;
@@ -258,6 +275,7 @@ function ExecutaBFS(){
         atual_y=fronteira[0].posicao_y;
         atualizaMapa(mapa);
     }
+    salvaDB(mapa);
 }
 
 function ExecutaDFS(){
@@ -266,6 +284,7 @@ function ExecutaDFS(){
     var visitados=[];
     var verificando;
     var inicial=mapa.terreno[mapa.inicio_x+mapa.inicio_y*mapa.tamanho_x];
+    mapa.metodo="dfs";
     mapa.terreno[mapa.inicio_x+mapa.inicio_y*mapa.tamanho_x].tipo=1;
     mapa.terreno[mapa.destino_x+mapa.destino_y*mapa.tamanho_x].tipo=2;
     inicial.path.push(-1);//Para mostrar que ele é o primeiro nó
@@ -311,10 +330,12 @@ function ExecutaDFS(){
         atualizaMapa(mapa);
         mapa.terreno[atual_x+atual_y*mapa.tamanho_x].condicao=1;
     }
+    salvaDB(mapa);
 }
 
 function ExecutaUFS(){
     var mapa=CriaMapa();
+    mapa.metodo="ufs";
     var fronteira=[];
     var visitados=[];
     var verificando;
@@ -365,4 +386,5 @@ function ExecutaUFS(){
         atual_y=fronteira[0].posicao_y;
         atualizaMapa(mapa);
     }
+    salvaDB(mapa);
 }

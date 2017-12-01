@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Histórico</h1>
+
+<table id="tabela_fofa">
+  <thead>
+    <tr>
+      <th>Método</th>
+      <th>Mapa</th>
+      <th>Tamanho Mapa</th>
+      <th>Inicio</th>
+      <th>Final</th>
+      <th colspan="5"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+
+    <% @historics.each do |historic| %>
+        <% @maps.each do |map|%>
+            <%if historic.user_id==current_user.id and historic.id==map.historic_id%>
+                <tr>
+                    <td><%= historic.metodo %></td>
+                    <td><%= map.pesos%></td>
+                    <td><%= "("+ String(map.largura)+ ","+ String(map.altura)+ ")" %></td>
+                    <td><%= map.inicial%>
+                    <td><%= map.final%>
+                </tr>
+            <%end%>
+        <% end %>
+    <% end %>
+  </tbody>
+</table>
+
+<br>

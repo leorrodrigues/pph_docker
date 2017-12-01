@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  largura: 1
+  altura: 1
+  pesos: MyString
+  inicial: MyString
+  final: MyString
+  historic: one
+
+two:
+  largura: 1
+  altura: 1
+  pesos: MyString
+  inicial: MyString
+  final: MyString
+  historic: two
