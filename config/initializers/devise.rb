@@ -277,5 +277,7 @@ Devise.setup do |config|
   #Rails.application.config.middleware.use OmniAuth::Builder do
   #      provider :twitter,'ZvJtGQo6luj6xRcyZHJPGBfWI','wqutE1Ble5FSjOKnmOScC8RAcud73clo902y0VaTnSRS5Z6stz'
   #end
+  config.secret_key = '617a3abb545fb20cbebe0ba4013f2596b78c788908d3d8ad3b12df173611c6f56992a1c2c2de950c110de39b47595e16bed79f3b6f6148adde1cf6fedc20c87e'
+
   config.omniauth :facebook, '228465747689914', 'c47a38c5189138b4d8f25756c9bd6de9'
 end
